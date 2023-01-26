@@ -10,8 +10,6 @@ import {
 
 import { PaginateProductMapper } from '../../application/usecases/PaginateProductMapper.service';
 
-import { ProductDTO } from '../dtos/Product.dto';
-
 import { StatusResponse } from '../../../shared/StatusResponse.interface';
 import { PaginatedDTO } from '../dtos/Paginated.dto';
 import { PaginatedResponseDTO } from '../dtos/PaginatedResponse.dto';
@@ -27,7 +25,7 @@ export class GetProductByQuery {
   @ApiOperation({ summary: 'find product by query' })
   @ApiResponse({
     status: HttpStatus.OK,
-    type: ProductDTO,
+    type: PaginatedResponseDTO,
   })
   execute(
     @Query() { page, size, query, currency }: PaginatedDTO,
